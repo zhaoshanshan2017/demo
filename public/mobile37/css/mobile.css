@@ -1,0 +1,300 @@
+/*移动端公用的css*/
+.lt_container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+}
+.lt_container .lt_header{
+    width: 100%;
+    height: 45px;
+    position: fixed;
+    background: #006699;
+    line-height: 45px;
+    z-index: 999;
+}
+.lt_container .lt_header a{
+    position: absolute;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    color: #fff;
+    text-align: center;
+}
+.lt_container .lt_header a.left{
+    left: 0;
+}
+.lt_container .lt_header a.right{
+    right: 0;
+}
+.lt_container .lt_header h3{
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+    margin: 0;
+    line-height: 45px;
+    font-size: 18px;
+}
+.lt_container .lt_body{
+    width: 100%;
+    height: 100%;
+    padding: 45px 0 55px 0;
+}
+.lt_container .lt_body .lt_content{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.lt_container .lt_footer{
+    width: 100%;
+    height: 55px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #006699;
+    z-index: 999;
+}
+.lt_container .lt_footer a{
+    width: 25%;
+    float: left;
+    color: #fff;
+    text-align: center;
+    padding-top: 6px;
+}
+.lt_container .lt_footer a p{
+    color: #fff;
+    font-size: 12px;
+}
+
+/*首页的样式*/
+.lt_nav{
+    width: 100%;
+    padding: 0 10px;
+    margin-top:10px;
+}
+.lt_nav a{
+    float: left;
+    width: 33.33%;
+}
+.lt_nav a img{
+    display: block;
+    width: 100%;
+}
+
+.lt_product{
+    margin-top:10px;
+    padding: 0 10px;
+}
+.lt_product ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.lt_product ul li{
+    width: 50%;
+    float: left;
+    padding-right:5px;
+    padding-left:0;
+    margin-bottom:10px;
+}
+.lt_product ul li:nth-child(2n){
+    padding-right:0;
+    padding-left:5px;
+}
+.lt_product ul li a{
+    width: 100%;
+    display: block;
+    background: #fff;
+    box-shadow: 0 0 3px #ccc;
+    text-align: center;
+}
+.lt_product ul li a img{
+    display: block;
+    width: 100%;
+}
+.lt_product ul li a .name{
+    padding: 0 5px;
+    color: #555;
+    text-align: left;
+}
+.lt_product ul li a .price{
+    font-size: 12px;
+}
+.lt_product ul li a .price span:first-child{
+    color: #f30;
+}
+.lt_product ul li a .price span:last-child{
+    color: #999;
+    text-decoration: line-through;
+}
+.lt_product ul li a button{
+    margin-bottom:10px;
+    background: #006699;
+    color: #fff;
+    border-color: #006699;
+}
+/*分类的样式*/
+.lt_cateLeft{
+    width: 90px;
+    height: 100%;
+    float: left;
+}
+.lt_cateLeft ul{
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.lt_cateLeft ul li{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #f3f4f5;
+    font-size: 12px;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.lt_cateLeft ul li a{
+    color: #333;
+    display: block;
+}
+.lt_cateLeft ul li.now{
+    border-right:none;
+    background: #fff;
+}
+.lt_cateLeft ul li.now a{
+    color: #f30;
+}
+.lt_cateRight{
+    overflow: hidden;
+    height: 100%;
+}
+.lt_cateRight ul{
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.lt_cateRight ul li{
+    width: 33.33%;
+    float: left;
+    padding-top: 10px;
+}
+.lt_cateRight ul li.nd{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0;
+    color: #666;
+}
+.lt_cateRight ul li a{
+    display: block;
+}
+.lt_cateRight ul li a img{
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+}
+.lt_cateRight ul li a p{
+    text-align: center;
+    font-size: 12px;
+}
+/*搜索页面*/
+.lt_search{
+    padding: 10px;
+    position: relative;
+}
+.lt_search input{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #006699;
+    font-size: 12px;
+    padding: 0 60px 0 10px;
+    border-radius: 2px;
+    margin-bottom:0;
+}
+.lt_search a{
+    color: #fff;
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #006699;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    /*4个角的圆角样式*/
+    /*border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;*/
+    border-radius: 0 2px 2px 0;
+}
+
+.lt_history{
+    font-size: 12px;
+    color: #666;
+    padding: 0 10px;
+}
+.lt_history .tit{
+    height: 30px;
+    position: relative;
+}
+.lt_history .tit h3{
+    font-size: 12px;
+    line-height: 30px;
+    margin: 0;
+    font-weight: normal;
+}
+.lt_history .tit a{
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 30px;
+    color: #666;
+}
+.lt_history ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px dashed #ccc;
+    border-bottom: none;
+}
+.lt_history ul li{
+    border-bottom: 1px dashed #ccc;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+.lt_history ul li span{
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+/*商品列表页*/
+.lt_order{
+    height: 30px;
+    line-height: 30px;
+    background: #f3f4f5;
+}
+.lt_order a{
+    width: 25%;
+    float: left;
+    font-size: 12px;
+    text-align: center;
+    color: #333;
+}
+.lt_order a.now{
+    color: #ff3300;
+}
+

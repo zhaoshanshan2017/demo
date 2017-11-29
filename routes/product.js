@@ -30,7 +30,7 @@ router.get("/queryProduct", function (req, res) {
     Product.queryProduct(product, page, function (err, data) {
         if (err) return res.send({"error": 403, "message": "数据库异常！"});
 
-        Product.countProduct(function (err, result) {
+        Product.countProduct(product,function (err, result) {
             if (err) return res.send({"error": 403, "message": "数据库异常！"});
             if (data.length == 0) {
                 page.count = result.count;

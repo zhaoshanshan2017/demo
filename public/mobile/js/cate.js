@@ -19,6 +19,7 @@ $(function(){
     });
 
     $('.cate_slide').on('tap','li',function(e){
+        console.log(0);
         var parentId = e.target.dataset['id'];
         var title = e.target.innerHTML;
         $('.cate_slide').html(template('cate_slide',{model:{list:Window.slideData,currId:parentId}}));

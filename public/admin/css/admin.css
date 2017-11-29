@@ -122,6 +122,11 @@ a:hover,a:active,a:focus{
 .table th,.table td{
     text-align: center;
 }
+.table-bordered>thead>tr>td,
+.table-bordered>thead>tr>th{
+    border-bottom-width:1px;
+    background: #eee;
+}
 .page{
     text-align: right;
 }
