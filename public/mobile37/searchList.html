@@ -25,10 +25,10 @@
                    </div>
                    <!--排序栏-->
                    <div class="lt_order">
-                       <a href="#" class="now">上架时间 <span class="fa fa-angle-down"></span></a>
-                       <a href="#">价格 <span class="fa fa-angle-up"></span></a>
-                       <a href="#">销量 <span class="fa fa-angle-down"></span></a>
-                       <a href="#">折扣 <span class="fa fa-angle-down"></span></a>
+                       <a href="#" data-type="time">上架时间 <span class="fa fa-angle-down"></span></a>
+                       <a href="#" data-type="price">价格 <span class="fa fa-angle-down"></span></a>
+                       <a href="#" data-type="num">销量 <span class="fa fa-angle-down"></span></a>
+                       <a href="#" data-type="scale">折扣 <span class="fa fa-angle-down"></span></a>
                    </div>
                    <!--商品列表-->
                    <div class="lt_product">
@@ -50,7 +50,7 @@
     <% for(var i = 0; i < data.length ; i++){ %>
     <% var item = data[i]; %>
     <li>
-       <a href="#" data-id="<%=item.id%>">
+       <a href="product.html?productId=<%=item.id%>" data-id="<%=item.id%>">
            <%
                 var picAddr = 'images/none.jpg';
                 if(item.pic && item.pic.length){
