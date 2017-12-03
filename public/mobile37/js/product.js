@@ -4,6 +4,7 @@ $(function () {
     mui.init({
         pullRefresh: {
             container: '#refreshContainer',
+            indicators:false,
             down: {
                 auto: true,
                 callback: function () {

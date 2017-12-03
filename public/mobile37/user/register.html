@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>乐淘登录</title>
+    <title>乐淘注册</title>
     <link rel="stylesheet" href="../assets/mui/css/mui.min.css">
     <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/mobile.css">
@@ -11,26 +11,33 @@
 <body>
 <div class="lt_container">
     <header class="lt_header">
-        <h3>乐淘登录</h3>
+        <a href="javascript:history.back();" class="left"><span class="mui-icon mui-icon-back"></span></a>
+        <h3>乐淘注册</h3>
     </header>
     <div class="lt_body">
         <div class="lt_content">
             <form class="mui-input-group">
                 <div class="mui-input-row">
-                    <label>用户名：</label>
-                    <input name="username" type="text" placeholder="请输入手机号/用户名" class="mui-input-clear">
+                    <input name="username" type="text" placeholder="手机号" class="mui-input-clear">
                 </div>
                 <div class="mui-input-row mui-password">
-                    <label>密&nbsp;&nbsp;&nbsp;码：</label>
-                    <input name="password" type="password" placeholder="请输入密码" class="mui-input-password"></span>
+                    <input name="password" type="password" placeholder="密码" class="mui-input-password"></span>
+                </div>
+                <div class="mui-input-row mui-password">
+                    <input name="rePass" type="password" placeholder="确认密码" class="mui-input-password"></span>
+                </div>
+                <div class="mui-input-row code">
+                    <input name="vCode" type="text" placeholder="短信验证码" class="code mui-input-clear"></span>
+                    <a href="javascript:;" class="mui-btn mui-btn-primary btn-getCode">获取验证码</a>
                 </div>
                 <div class="mui-button-row">
                     <button type="reset" class="mui-btn mui-btn-danger">重置</button>
-                    <button type="button" class="mui-btn mui-btn-primary" onclick="return false;">登录</button>&nbsp;&nbsp;
+                    <button type="button" class="mui-btn mui-btn-primary btn-register" onclick="return false;">注册</button>&nbsp;&nbsp;
                 </div>
             </form>
             <div class="lt_info">
-                <a href="register.html">免费注册</a>
+                <input type="checkbox" checked><span> 我同意《会员服务协议》</span>
+                <a href="login.html">立即登录</a>
             </div>
         </div>
     </div>
@@ -45,6 +52,6 @@
 <script src="../assets/zepto/zepto.min.js"></script>
 <script src="../assets/art-template/template-native.js"></script>
 <script src="../js/common.js"></script>
-<script src="../js/user/login.js"></script>
+<script src="../js/user/register.js"></script>
 </body>
 </html>

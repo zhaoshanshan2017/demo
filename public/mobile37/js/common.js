@@ -65,3 +65,13 @@ lt.serialize2object = function (serialize) {
     }
     return obj;
 };
+/*根据ID返回数据列表当中的符合ID对象*/
+lt.getItemById = function (id,list) {
+    var obj = null;
+    list.forEach(function (item,i) {
+        if(id == item.id){
+            obj = item;
+        }
+    });
+    return obj;
+};
