@@ -1,83 +1,52 @@
-/**
- * ITCAST WEB
- * Created by zhousg on 2016/12/27.
- */
-if(!LeTao) var LeTao = {};
-/*常用地址*/
-LeTao.LOGIN_URL = '/mobile/user/login.html';
-LeTao.SEARCH_LIST_URL = '/mobile/searchList.html';
-LeTao.CART_URL = '/mobile/cart.html';
-LeTao.USER_URL = '/mobile/user/';
-
-/*全局ajax工具函数*/
-LeTao.ajax = function(options){
-    if(!options.url) return false;
+/*准备一个全局对象  用来挂载公用方法  lt.xxx去调用*/
+window.lt = {};
+/*封装获取地址栏数据的方法*/
+/*
+* ?key=value&key1=value1 ---->  {key:value,key1:value1}
+* 返回的数据是对象
+* 问题：特殊字符 & = 中文 ?  转码
+* encodeURIComponent 编码URL decodeURIComponent 解码URL
+* 约定：传 编码  获取  解码
+* */
+lt.getParamsByUrl = function (url) {
+    var params = {};
+    var search = url || location.search; //获取地址栏的get方式传递的数据
+    if (search) {
+        search = search.replace('?','');
+        /*生成数据 拼接对象*/
+        var arr = search.split('&');
+        arr.forEach(function (item,i) {
+            // item   key=value  key1=value1
+            var arrItem = item.split('=');
+            var key = arrItem[0];
+            var value = arrItem[1];
+            /*解析URL编码在存入对象*/
+            params[key] = decodeURIComponent(value);
+        });
+    }
+    return params;
+};
+/*会做登录拦截的ajax*/
+/* $.ajax({一坨参数}); */
+lt.ajax = function (options) {
     $.ajax({
-        url:options.url,
-        type:options.type||'post',
-        data:options.data||'',
-        dataType:options.dataType||'json',
-        timeout:options.timeout||50000,
-        beforeSend:function(){
-            options.beforeSend && options.beforeSend();
-        },
-        success:function(data){
-            /*400代表未登录*/
-            if(data && data.error == '400'){
-                window.location.href = LeTao.LOGIN_URL+'?returnUrl='+decodeURI(location.href);
-                return false;
+        type:options.type || 'get',
+        url:options.url || '#',
+        data:options.data || '',
+        dataType:options.dataType || 'json',
+        success:function (data) {
+            /*未登录*/
+            /*登录拦截*/
+            if(data.error == 400){
+                location.href = '/mobile/user/login.html?returnUrl='+encodeURIComponent(location.href);
             }
-            setTimeout(function(){
+            /*已登录*/
+            else{
                 options.success && options.success(data);
-            },1000);
+            }
         },
-        error:function(xhr,type,errorThrown){
+        error:function () {
             mui.toast('服务繁忙');
-            options.error && options.error({xhr:xhr,type:type,errorThrown:errorThrown});
         }
     });
-};
-/*
- * 获取当前页面的url数据根据key
- * */
-LeTao.getUrlParam = function(key){
-    var strings = location.search.substr(1).split("&");
-    var value = null;
-    for(var i = 0; i < strings.length; i ++) {
-        var arr = strings[i].split("=");
-        if(arr[0] == key){
-            /*urlcode 转码*/
-            value = decodeURI(arr[1]);
-            break;
-        }
-    }
-    return value;
-};
-/*
-* 根据数组中对象数据获取索引
-* */
-LeTao.getIndexFromId = function(arr,id){
-    var index = null;
-    for(var i = 0 ; i < arr.length ; i++){
-        var item = arr[i];
-        if(item && item.id == id){
-            index = i;
-            break;
-        }
-    }
-    return index;
-};
-/*
- * 根据数组中对象数据ID获取索引
- * */
-LeTao.getObjectFromId = function(arr,id){
-    var object = null;
-    for(var i = 0 ; i < arr.length ; i++){
-        var item = arr[i];
-        if(item && item.id == id){
-            object = item;
-            break;
-        }
-    }
-    return object;
 };

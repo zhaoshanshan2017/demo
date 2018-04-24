@@ -1,67 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
+<!doctype html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <meta content="telephone=no" name="format-detection">
-    <title>传智云购-搜索中心</title>
-    <link rel="stylesheet" href="res/mui/css/mui.min.css"/>
-    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/common.css"/>
-    <link rel="stylesheet" href="css/search.css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>乐淘云商-搜索中心</title>
+    <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="assets/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <!--目标 ： 1. localStorage使用  2. 使用模板引擎 -->
 </head>
 <body>
-<div class="cz_layout">
-    <header class="cz_topBar">
-        <a href="javascript:history.back();" class="icon_back fa fa-arrow-left"></a>
-        <span class="title">搜索中心</span>
+<div class="lt_container">
+    <!--顶部-->
+    <header class="lt_topBar">
+        <a href="javascript:history.back();" class="mui-icon mui-icon-back left"></a>
+        搜索中心
     </header>
-    <div class="cz_container">
-        <div class="cz_search">
-            <form action="">
-                <input class="search_input" type="search" placeholder="搜索你喜欢的商品">
-            </form>
-            <a class="search_btn" href="javascript:;">搜索</a>
-        </div>
-        <div class="cz_history">
-            <div class="mui-clearfix">
-                <span class="title">搜索历史</span>
-                <span class="icon_clear fa fa-trash"> 清空记录</span>
+    <!--内容-->
+    <div class="lt_content">
+        <div class="lt_wrapper">
+            <!--搜索框-->
+            <div class="lt_search">
+                <input type="search" placeholder="搜索你喜欢的商品">
+                <a href="javascript:;">搜索</a>
             </div>
-            <ul>
-                <li><a href="#">nike</a><span class="icon_delete fa fa-close"></span></li>
-                <li><a href="#">耐克</a><span class="icon_delete fa fa-close"></span></li>
-            </ul>
+            <!--历史列表-->
+            <div class="lt_history">
+                <!--TODO-->
+            </div>
         </div>
     </div>
-    <footer class="cz_tabs">
-        <a class="tab_home fa fa-home" href="index.html"><span>首页</span></a>
-        <a class="tab_cate fa fa-bars" href="cate.html"><span>分类</span></a>
-        <a class="tab_cart fa fa-shopping-cart" href="cart.html"><span>购物车</span></a>
-        <a class="tab_user fa fa-user" href="user/index.html"><span>会员中心</span></a>
+    <!--底部-->
+    <footer class="lt_tabs">
+        <a href="index.html"><span class="fa fa-home"></span><p>首页</p></a>
+        <a href="category.html"><span class="fa fa-bars"></span><p>分类</p></a>
+        <a href="user/cart.html"><span class="fa fa-shopping-cart"></span><p>购物车</p></a>
+        <a href="user/index.html"><span class="fa fa-user"></span><p>个人中心</p></a>
     </footer>
 </div>
-<script type="text/html" id="searchTpl">
-    <% if(model && model.length){ %>
-    <div class="mui-clearfix">
-        <span class="title">搜索历史</span>
-        <span class="icon_clear fa fa-trash"> 清空记录</span>
-    </div>
-    <ul>
-        <% for(var i = model.length-1 ; i >=0 ; i --){ %>
-        <li><a data-key="<%=model[i]%>" href="javascript:;"><%=model[i]%></a><span class="icon_delete fa fa-close"></span></li>
-        <% } %>
-    </ul>
-    <%}else{%>
-    <span class="title">没有历史搜索记录。</span>
-    <%}%>
+<script type="text/template" id="list">
+    <% if($data.length){ %>
+        <div class="tit">
+            <span class="name">搜索历史</span>
+            <a class="clear" href="javascript:;"><span class="fa fa-trash"></span>清空历史</a>
+        </div>
+        <ul>
+            <% for(var i = $data.length-1 ; i >=0 ; i --){ %>
+                <li><a href="javascript:;" data-key="<%=$data[i]%>"><%=$data[i]%></a><span data-index="<%=i%>" class="fa fa-close"></span></li>
+            <% } %>
+        </ul>
+    <% }else{ %>
+        <div class="tit">
+            <span class="name">没有搜索历史记录</span>
+        </div>
+    <% } %>
 </script>
-<script src="res/mui/js/mui.min.js"></script>
-<script src="res/zepto/zepto.min.js"></script>
-<script src="res/artTemplate/template-native.js"></script>
-<script src="js/common.js"></script>
+<script src="assets/mui/js/mui.min.js"></script>
+<script src="assets/zepto/zepto.min.js"></script>
+<script src="assets/art-template/template-web.js"></script>
 <script src="js/search.js"></script>
 </body>
 </html>

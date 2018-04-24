@@ -1,42 +1,59 @@
-$(function(){
-    /*1.注册人数  数据可视化*/
-    /*1.1准容器渲染图标*/
-    /*1.2准备数据 */
-    /*1.3引入核心echarts文件*/
-    /*1.4获取dom容器*/
-    var firstDom = document.querySelector('.picTable:first-child');
-    /*1.5初始化dom容器*/
-    var firstCarts = echarts.init(firstDom);
-    /*1.6进行配置和导入数据*/
-    var option = {
-        /*图标的标题*/
+$(function () {
+    initBar();
+    initPie()
+});
+var initBar = function () {
+    /*数据可视化  季度的注册用户的数量 */
+    /*1. 找到需要初始化的容器  初始化成echarts对象*/
+    var dom = document.querySelector('.picTable:first-child');
+    var myeCharts = echarts.init(dom);
+    /*2. 配置*/
+    var options = {
         title: {
-            text: '2017年注册人数'
+            text: '用户注册人数'
         },
         tooltip: {},
         legend: {
             data:['人数']
         },
         xAxis: {
-            data: ["1月","2月","3月","4月","5月","6月"]
+            data: ["一季度","二季度","三季度","四季度"]
         },
         yAxis: {},
         series: [{
             name: '人数',
             type: 'bar',
-            data: [1000, 2000, 3600, 1400, 1200, 2220]
+            data: [550,250,1000,100]
         }]
-    };
-    /*1.7 渲染图标*/
-    firstCarts.setOption(option);
+    }
+    /*3. 设置你的配置项*/
+    myeCharts.setOption(options);
+};
+var initPie = function () {
+    /*模拟一组后台数据*/
+    var brandData = [
+        {brandName:'耐克',num:100},
+        {brandName:'阿迪',num:100},
+        {brandName:'回力',num:100},
+        {brandName:'双星',num:100},
+        {brandName:'特步',num:100}
+    ];
+    var legendData = [];
+    var seriesData = [];
+    brandData.forEach(function (item,i) {
+        legendData.push(item.brandName);
+        seriesData.push({
+            name:item.brandName,
+            value:item.num
+        })
+    });
 
-    /*2.品牌销量  数据可视化*/
-    var secondDom = document.querySelector('.picTable:last-child');
-    var secondCarts = echarts.init(secondDom);
-    var secondOption = {
+    var dom = document.querySelector('.picTable:last-child');
+    var myeCharts = echarts.init(dom);
+    var option = {
         title : {
             text: '热门品牌销售',
-            subtext: '2017年6月',
+            subtext: '2018-01',
             x:'center'
         },
         tooltip : {
@@ -46,21 +63,23 @@ $(function(){
         legend: {
             orient: 'vertical',
             left: 'left',
-            data: ['耐克','阿迪','百伦','安踏','李宁']
+            /*data: ['耐克','阿迪','回力','双星','特步']*/
+            data:legendData
         },
         series : [
             {
-                name: '访问来源',
+                name: '销售情况',
                 type: 'pie',
                 radius : '55%',
                 center: ['50%', '60%'],
-                data:[
+                /*data:[
                     {value:335, name:'耐克'},
                     {value:310, name:'阿迪'},
-                    {value:234, name:'百伦'},
-                    {value:135, name:'安踏'},
-                    {value:1548, name:'李宁'}
-                ],
+                    {value:234, name:'回力'},
+                    {value:135, name:'双星'},
+                    {value:1548, name:'特步'}
+                ],*/
+                data:seriesData,
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -71,5 +90,5 @@ $(function(){
             }
         ]
     };
-    secondCarts.setOption(secondOption);
-})
+    myeCharts.setOption(option);
+}

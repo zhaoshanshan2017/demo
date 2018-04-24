@@ -1,39 +1,27 @@
+
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>后台管理系统-二级分类</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="assets/bootstrap-validator/css/bootstrapValidator.min.css"/>
-    <link rel="stylesheet" href="assets/nprogress/nprogress.css"/>
-    <link rel="stylesheet" href="css/admin.css"/>
-    <style>
-        .fileupload{
-            position: relative;
-        }
-        .fileupload [type="file"]{
-            width: 82px;
-            height: 34px;
-            position: absolute;
-            opacity: 0;
-        }
-    </style>
+    <title>乐淘后台管理系统-首页</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrapValidator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="assets/nprogress/nprogress.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
+
 <!--侧边栏-->
 <aside class="ad_aside">
-    <!--商标-->
     <div class="brand"><a href="index.html">ITCAST</a></div>
-    <!--用户-->
     <div class="user">
-        <img src="images/default.png" alt=""/>
+        <img src="images/default.png" alt="">
         <span>超级管理员</span>
     </div>
-    <!--菜单-->
     <div class="menu">
         <ul>
             <li><a href="userManage.html"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
-            <li class="now">
+            <li>
                 <a href="javascript:;"><span class="glyphicon glyphicon-list"></span> 分类管理</a>
                 <div class="child">
                     <a href="categoryFirst.html">一级分类</a>
@@ -46,99 +34,114 @@
 </aside>
 <!--内容-->
 <section class="ad_section">
-    <!--顶部导航-->
     <nav class="ad_nav">
-        <a data-menu href="javascript:;"><span class="glyphicon glyphicon-align-justify"></span></a>
-        <a data-logout href="javascript:;"><span class="glyphicon glyphicon-log-out"></span></a>
+        <a data-menu="" href="javascript:;"><span class="glyphicon glyphicon-align-justify"></span></a>
+        <a data-logout="" data-toggle="modal" data-target="#myModal"  href="javascript:;"><span class="glyphicon glyphicon-log-out"></span></a>
     </nav>
     <div class="container-fluid">
-        <!--路径导航-->
         <ol class="breadcrumb">
-            <li><a href="#">管理系统</a></li>
-            <li class="active">分类管理</li>
+            <li><a href="index.html">管理系统</a></li>
             <li class="active">二级分类</li>
         </ol>
+        <!--右侧内容-->
         <div class="ad_content">
-            <button id="addBtn" class="btn btn-default mb_15">添加分类</button>
+            <button data-toggle="modal" data-target="#addModal" class="btn btn-default">添加分类</button><br>
+            <br>
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th width="10%">序号</th>
-                    <th width="30%">一级分类名称</th>
-                    <th width="30%">二级分类名称</th>
-                    <th width="30%">二级分类LOGO</th>
+                    <th>序号</th>
+                    <th>上级分类</th>
+                    <th>品牌名称</th>
+                    <th>品牌商标</th>
                 </tr>
                 </thead>
                 <tbody>
-
+                    <!--TODO-->
                 </tbody>
             </table>
-            <div class="page">
-                <ul class="pagination"></ul>
-            </div>
+            <nav class="text-right">
+                <ul class="pagination">
+                   <!--TODO-->
+                </ul>
+            </nav>
         </div>
     </div>
 </section>
-<div class="modal fade" id="addModal">
+<div class="modal fade" id="addModal" >
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                <h4 class="modal-title">添加分类</h4>
+                <h4 class="modal-title" >添加分类</h4>
             </div>
             <div class="modal-body">
-                <form action="#" id="form">
+                <form id="addCategoryForm">
                     <div class="form-group">
-                        <div class="dropdown">
-                            <span>一级分类：</span>
-                            <button class="btn btn-default" type="button" data-toggle="dropdown">
-                                <span class="dropdown-text">请选择</span> <span class="caret"></span>
+                        顶级分类：
+                        <div class="dropdown" style="display: inline-block">
+                            <button class="btn btn-default" data-toggle="dropdown">
+                                <span class="topCategory">请选择</span>
+                                <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
+                                <li><a href="#">游泳馆</a></li>
+                                <li><a href="#">游泳馆</a></li>
+                                <li><a href="#">游泳馆</a></li>
                                 <li><a href="#">游泳馆</a></li>
                             </ul>
                         </div>
                         <input type="hidden" name="categoryId">
                     </div>
                     <div class="form-group">
-                        <input name="brandName" type="text" class="form-control" placeholder="请输入二级分类名称">
+                        <label for="brandName">品牌名称</label>
+                        <input name="brandName" type="text" class="form-control" id="brandName" placeholder="品牌名称">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="position: relative">
+                        <button class="btn btn-default">上传图片</button>
+                        <input id="fileUpload" type="file" name="pic1">
                         <input type="hidden" name="brandLogo">
-                        <div class="fileupload">
-                            <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" class="btn btn-default">
-                            <a href="javascript:;" class="btn btn-default">上传图片</a>
-                        </div>
                     </div>
-                    <div class="form-group"><img width="100" height="100" src="images/none.png" alt=""></div>
+                    <div class="img_box"><img src="images/default.png" alt="" width="100" height="100"></div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="submit" class="btn btn-primary" form="form">确认</button>
+                <!-- form="addCategoryForm" 在表单外的元素关联表单 -->
+                <button type="submit" form="addCategoryForm" class="btn btn-primary">添加</button>
+            </div>
         </div>
     </div>
 </div>
-<script type="text/template" id="template">
-    <% for(var i = 0 ; i < rows.length ; i ++ ){ %>
-    <tr>
-        <td><%=(page-1)*size+i+1%></td>
-        <td><%=rows[i].categoryName%></td>
-        <td><%=rows[i].brandName%></td>
-        <td><img width="50" height="50" src="<%=rows[i].brandLogo%>" alt=""></td>
-    </tr>
+<script type="text/template" id="list">
+    <% for(var i = 0 ; i < rows.length; i ++){ %>
+        <tr>
+            <th scope="row"><%=size*(page-1)+i+1%></th>
+            <td><%=rows[i].categoryName%></td>
+            <td><%=rows[i].brandName%></td>
+            <td><img onerror="this.src='/admin/images/default.png'" src="<%=rows[i].brandLogo%>" width="100" height="100" alt=""></td>
+        </tr>
     <% } %>
-</script>定</button>
-</div>
-<script src="assets/jquery/jquery.min.js"></script>
+</script>
+<script type="text/template" id="downMenu">
+    <% for(var i = 0 ; i < rows.length; i ++){ %>
+    <li><a href="javascript:;" data-id="<%=rows[i].id%>"><%=rows[i].categoryName%></a></li>
+    <% } %>
+</script>
+<script src="assets/jquery/jquery-1.12.1.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="assets/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+<script src="assets/bootstrapPaginator/bootstrap-paginator.min.js"></script>
 <script src="assets/nprogress/nprogress.js"></script>
-<script src="assets/artTemplate/template-native.js"></script>
-<script src="assets/bootstrap-paginator/bootstrap-paginator.min.js"></script>
-<script src="assets/jquery-fileupload/jquery.ui.widget.js"></script>
-<script src="assets/jquery-fileupload/jquery.fileupload.js"></script>
+<script src="assets/echarts/echarts.min.js"></script>
+<script src="assets/art-template/template-web.js"></script>
+<!--1. 基于jquery ui-->
+<script src="assets/jqueryFileupload/jquery.ui.widget.js"></script>
+<!--2. 遇见跨域-->
+<!--<script src="assets/jqueryFileupload/jquery.iframe-transport.js"></script>-->
+<!--3. 核心文件-->
+<script src="assets/jqueryFileupload/jquery.fileupload.js"></script>
 <script src="js/admin.js"></script>
-<script src="js/categorySecond.js"></script>
+<script src="js/category.js"></script>
 </body>
 </html>

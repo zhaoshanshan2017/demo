@@ -1,0 +1,464 @@
+/*主体架子*/
+.lt_container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.lt_container .lt_topBar{
+    height: 45px;
+    width: 100%;
+    background: #069;
+    color: #fff;
+    line-height: 45px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.lt_container .lt_topBar a{
+    color: #fff;
+    position: absolute;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+}
+.lt_container .lt_topBar a.left{
+    left: 0;
+}
+.lt_container .lt_topBar a.right{
+    right: 0;
+}
+.lt_container .lt_content{
+    height: 100%;
+    width: 100%;
+    padding-top: 45px;
+    padding-bottom: 55px;
+}
+.lt_container .lt_content.cart{
+    padding-bottom:85px;
+}
+.lt_container .lt_content .lt_wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+.lt_container .lt_tabs{
+    height: 55px;
+    width: 100%;
+    background: #069;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.lt_container .lt_tabs a{
+    width: 25%;
+    float: left;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 6px;
+}
+.lt_container .lt_tabs a p{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #fff;
+}
+
+.lt_nav{
+    margin-top: 10px;
+    padding: 0 10px;
+}
+.lt_nav a{
+    display: block;
+    width: 33.3333%;
+    float: left;
+}
+.lt_nav a img{
+    display: block;
+    width: 100%;
+}
+.lt_product{
+    padding: 0 10px;
+}
+.lt_product ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.lt_product ul li{
+    width: 50%;
+    float: left;
+    margin-top: 10px;
+}
+.lt_product ul li:nth-child(2n-1){
+    padding-right: 5px;
+}
+.lt_product ul li:nth-child(2n){
+    padding-left: 5px;
+}
+.lt_product ul li a{
+    display: block;
+    width:100%;
+    min-height: 200px;
+    box-shadow: 0 0 2px #d8d8d8;
+    padding: 10px 0;
+}
+.lt_product ul li a img{
+    display: block;
+    width: 100%;
+}
+.lt_product ul li a .name{
+    padding: 0 5px;
+}
+.lt_product ul li a .price{
+    text-align: center;
+    font-size: 12px;
+}
+.lt_product ul li a .price .old{
+    text-decoration: line-through;
+}
+.lt_product ul li a .price .new{
+    color: orangered;
+}
+.lt_product ul li a button{
+    display: block;
+    margin: 0 auto;
+    background: #069;
+    color: #fff;
+    border-color: #069;
+}
+
+/*分类页面*/
+.cate_left{
+    width: 90px;
+    height: 100%;
+    float: left;
+}
+.cate_left ul{
+    width: 90px;
+    margin: 0;
+    padding: 0;
+}
+.cate_left ul li{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 90px;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background: #f3f4f5;
+}
+.cate_left ul li.now{
+    background: #fff;
+    border-right: none;
+}
+.cate_left ul li a{
+    display: block;
+    font-size: 12px;
+    color: #333;
+}
+.cate_left ul li.now a{
+    color: orangered;
+}
+.cate_right{
+    padding: 0 10px;
+    overflow: hidden;
+}
+.cate_right_box{
+    padding-top: 10px;
+}
+.cate_right_box ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.cate_right_box ul li{
+   float: left;
+    width: 33.3333%;
+}
+.cate_right_box ul li.no_data{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+.cate_right_box ul li a{
+    width: 100%;
+    display: block;
+}
+.cate_right_box ul li a img{
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    display: block;
+}
+.cate_right_box ul li a p{
+    text-align: center;
+    font-size: 12px;
+}
+
+.lt_search{
+    padding:10px 10px 0 10px;
+    position: relative;
+}
+.lt_search input[type="search"]{
+    height: 30px;
+    line-height: 30px;
+    margin-bottom:0;
+    background: #fff;
+    text-align: left;
+    border: 1px solid #069;
+    border-radius: 2px;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 70px;
+}
+.lt_search a{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 60px;
+    height: 30px;
+    background: #069;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+    /*border-radius: 0 2px 2px 0;*/
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+.lt_history{
+    margin-top:10px;
+    font-size: 12px;
+    padding: 0 10px;
+}
+.lt_history .tit{
+    color: #666;
+}
+.lt_history .tit .clear{
+    float: right;
+    color: #666;
+}
+.lt_history ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 1px dashed #ddd;
+    border-bottom: none;
+    margin-top: 5px;
+}
+.lt_history ul li{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px dashed #ddd;
+    padding-left:10px;
+}
+.lt_history ul li span{
+    float: right;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #666;
+}
+
+/*商品列表*/
+.lt_order{
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    background: #f3f4f5;
+    margin-top:10px;
+}
+.lt_order a{
+    width: 25%;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    color: #666666;
+}
+.lt_order a.now{
+    color: orangered;
+}
+.mui-scroll{
+    background: #fff;
+}
+
+/*商品详情*/
+.lt_trade{
+    position: absolute;
+    height: 55px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    line-height: 55px;
+}
+.lt_trade .cart{
+    width: 55px;
+    height: 55px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #333;
+}
+.lt_trade .btnBox{
+    padding-left: 55px;
+    padding-right: 10px;
+}
+.lt_trade .btnBox a{
+    width: 49%;
+    height: 40px;
+    margin-top: 7px;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+}
+.lt_trade .btnBox .btn_cart{
+    margin-right: 2%;
+    background: #991020;
+}
+.lt_trade .btnBox .btn_pay{
+    background: #fa672d;
+}
+/*商品相关样式*/
+.p_name{
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+.p_name p{
+    font-size: 20px;
+    color: #333;
+    margin-bottom:0;
+}
+.p_price{
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+}
+.p_price .now{
+    color: orangered;
+    font-size: 24px;
+}
+.p_price .old{
+    text-decoration: line-through;
+    font-size: 12px;
+    color: #666;
+}
+.p_size{
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 40px;
+}
+.p_size span{
+    padding: 5px 6px;
+    border: 1px solid #ccc;
+}
+.p_size span.now{
+    background: orangered;
+}
+.p_num{
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+}
+.p_num .changeNum{
+    display: inline-block;
+}
+.p_num .changeNum span{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 30px;
+    background: #f3f4f5;
+}
+.p_num .changeNum input{
+    width: 30px;
+    height: 30px;
+    margin-bottom:0;
+    vertical-align: middle;
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+    padding: 0;
+    text-align: center;
+}
+
+/*购物车的样式*/
+/*.mui-table-view-cell>a:not(.mui-btn)  E:not('选择器') 先找到所有的E去排除符合选择器的元素*/
+.mui-table-view .mui-media-object.lt_cart_img{
+    max-width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+.mui-table-view-cell>.mui-slider-handle .mui-navigate-right:after{
+    right: -15px;
+}
+.mui-table-view-cell> .mui-slider-handle >a.lt_cart .name{
+    color: #333;
+}
+.mui-table-view-cell> .mui-slider-handle >a.lt_cart .price .now{
+    color: orangered;
+}
+.mui-table-view-cell> .mui-slider-handle >a.lt_cart .price .old{
+    text-decoration: line-through;
+    color: #ddd;
+}
+.mui-table-view-cell> .mui-slider-handle >a.lt_cart .price .num{
+    float: right;
+}
+.mui-table-view-cell> .mui-slider-handle >a.lt_cart .size{
+    font-size: 12px;
+}
+.mui-table-view-cell> .mui-slider-handle >a.lt_cart input{
+    position: absolute;
+    left: 10px;
+    bottom: 14px;
+}
+.lt_amount{
+    position: absolute;
+    left: 0;
+    bottom: 55px;
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
+    border-top: 1px solid #ccc;
+    background: #fff;
+}
+.lt_amount .amount{
+    color: orangered;
+    font-weight: bold;
+    font-size: 12px;
+    padding-left:10px;
+}
+.lt_amount .btn_order{
+    height: 30px;
+    width: 100px;
+    background: orangered;
+    color: #fff;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    text-align: center;
+    font-size: 12px;
+}
+
+.cart_edit{
+    text-align: left;
+}

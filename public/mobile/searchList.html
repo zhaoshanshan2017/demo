@@ -1,71 +1,85 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
+<!doctype html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0"/>
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <meta content="telephone=no" name="format-detection">
-    <title>传智云购-搜索中心</title>
-    <link rel="stylesheet" href="res/mui/css/mui.min.css"/>
-    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/common.css"/>
-    <link rel="stylesheet" href="css/search.css"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>乐淘云商-商品列表</title>
+    <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="assets/fa/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <!--目标 ： 1. 使用模板引擎  2.mui组件 下拉刷新 上拉加载  3. ajax  4.排序-->
 </head>
 <body>
-<div class="cz_layout">
-    <header class="cz_topBar">
-        <a href="javascript:history.back();" class="icon_back fa fa-arrow-left"></a>
-        <span class="title">搜索中心</span>
+<div class="lt_container">
+    <!--顶部-->
+    <header class="lt_topBar">
+        <a href="javascript:history.back();" class="mui-icon mui-icon-back left"></a>
+        商品列表
     </header>
-    <div class="cz_container ">
-        <div class="mui-scroll-wrapper">
-            <div class="mui-scroll">
-                <div class="cz_search">
-                    <form action="">
-                        <input class="search_input" type="search" placeholder="搜索你喜欢的商品">
-                    </form>
-                    <a class="search_btn" href="javascript:;">搜索</a>
-                </div>
-                <div class="cz_orderBar">
-                    <a data-type="time" href="javascript:;">上架时间 <span class="fa fa-angle-down"></span></a>
-                    <a data-type="price" href="javascript:;">价格 <span class="fa fa-angle-down"></span></a>
-                    <a data-type="num" href="javascript:;">销量 <span class="fa fa-angle-down"></span></a>
-                    <a data-type="sale" href="javascript:;">折扣 <span class="fa fa-angle-down"></span></a>
-                </div>
-                <div id="product_box" class="mui-clearfix">
-                    <div class="loading"></div>
+    <!--内容-->
+    <div class="lt_content">
+        <div class="lt_wrapper">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <!--搜索框-->
+                    <div class="lt_search">
+                        <input type="search" placeholder="搜索你喜欢的商品">
+                        <a href="javascript:;">搜索</a>
+                    </div>
+                    <!--排序栏-->
+                    <div class="lt_order">
+                        <a href="javascript:;" data-order-type="time"><span>上架时间</span> <span class="fa fa-angle-down"></span></a>
+                        <a href="javascript:;" data-order-type="price"><span>价格</span> <span class="fa fa-angle-down"></span></a>
+                        <a href="javascript:;" data-order-type="num"><span>销量</span> <span class="fa fa-angle-down"></span></a>
+                        <a href="javascript:;" data-order-type="scale"><span>折扣</span> <span class="fa fa-angle-down"></span></a>
+                    </div>
+                    <!--商品列表-->
+                    <div class="lt_product mui-clearfix">
+                        <ul>
+                            <!--TODO-->
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="cz_tabs">
-        <a class="tab_home fa fa-home" href="index.html"><span>首页</span></a>
-        <a class="tab_cate fa fa-bars" href="cate.html"><span>分类</span></a>
-        <a class="tab_cart fa fa-shopping-cart" href="cart.html"><span>购物车</span></a>
-        <a class="tab_user fa fa-user" href="user/index.html"><span>会员中心</span></a>
+    <!--底部-->
+    <footer class="lt_tabs">
+        <a href="index.html"><span class="fa fa-home"></span>
+            <p>首页</p></a>
+        <a href="category.html"><span class="fa fa-bars"></span>
+            <p>分类</p></a>
+        <a href="user/cart.html"><span class="fa fa-shopping-cart"></span>
+            <p>购物车</p></a>
+        <a href="user/index.html"><span class="fa fa-user"></span>
+            <p>个人中心</p></a>
     </footer>
 </div>
-<script type="text/html" id="productTpl">
-    <% if(model.data && model.data.length){ %>
-    <% for(var i = 0 ; i < model.data.length ; i ++){ %>
-    <% var item = model.data[i]; %>
-    <a href="product.html?productId=<%=item.id%>" class="cz_product">
-        <div class="box">
-            <img src="<%=item.pic[0]&&item.pic[0].picAddr||'/mobile/images/none.jpg'%>" alt="<%=item.proName%>"/>
-            <p class="name"><%=item.proName%></p>
-            <p><span class="price">&yen;<%=item.price%></span><span class="oldPrice">&yen;<%=item.oldPrice%></span></p>
-            <button class="button">立即购买</button>
-        </div>
-    </a>
+<script type="text/template" id="list">
+    <% for(var i = 0; i < data.length ; i++){ %>
+    <% var item = data[i]; %>
+    <li>
+        <a href="product.html?productId=<%= item.id %>">
+            <%
+                var imageUrl = '/mobile/images/none01.jpg';
+                if(item.pic && item.pic.length){
+                    imageUrl = item.pic[0].picAddr;
+                }
+            %>
+            <img src="<%=imageUrl%>" alt="">
+            <p class="name mui-ellipsis-2"><%= item.proName %></p>
+            <p class="price">
+                <span class="old">&yen;<%= item.oldPrice %></span>
+                <span class="new">&yen;<%= item.price %></span></p>
+            <button>立即购买</button>
+        </a>
+    </li>
     <% } %>
-    <%}else{%>
-    <div class="mui-text-center">没有更多商品</div>
-    <%}%>
 </script>
-<script src="res/mui/js/mui.min.js"></script>
-<script src="res/zepto/zepto.min.js"></script>
-<script src="res/artTemplate/template-native.js"></script>
+<script src="assets/mui/js/mui.min.js"></script>
+<script src="assets/zepto/zepto.min.js"></script>
+<script src="assets/art-template/template-web.js"></script>
 <script src="js/common.js"></script>
 <script src="js/searchList.js"></script>
 </body>
